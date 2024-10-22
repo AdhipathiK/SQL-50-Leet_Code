@@ -4,7 +4,7 @@ Problem Statement:
 
 Approach:
   1. Identify Non-referred Customers:
-  We look for customers where the referee_id is either not 2 or null (meaning they weren’t referred by anyone).
+  We look for customers where the referee_id is not 2 But, we need to include null (meaning they weren’t referred by anyone).
   
   2. Return the Names:
   Once we filter out the customers who were referred by id = 2, we return the names of the remaining customers.
