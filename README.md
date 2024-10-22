@@ -1,2 +1,45 @@
-# SQL-50-Leet_Code
-Welcome to my repository, where I tackle the SQL-50-LeetCode problems using both SQL and Pandas. This project is aimed at strengthening my skills in database management and data manipulation, while also offering a comparative approach between traditional SQL queries and the powerful data analysis library, Pandas, in Python.
+# SQL & Pandas Problem Solving - Data Analyst Journey
+
+Welcome to my GitHub repository! This repository showcases my solutions to **LeetCode SQL problems** using both **SQL** and **Pandas**. It is part of my journey towards becoming a proficient **Data Analyst**, leveraging the skills I’ve acquired through education and professional experience.
+
+## About Me
+
+I am an experienced **Data Analyst** and a current **MSc Data Science** student at **Manchester Metropolitan University**. I have a proven track record of analyzing and visualizing complex datasets, creating dashboards to drive data-driven decisions. I am certified in **Azure Data Fundamentals (DP-900)** and proficient in a wide range of data engineering and analytical tools. You can find more about my professional background on my [LinkedIn](https://www.linkedin.com/in/adhipathi-kannan).
+
+## Problem Solving Approach
+
+In this repository, I solve **50 SQL problems** from LeetCode using both **SQL** and **Pandas**. My approach includes:
+
+1. **Problem Statement**: Description of the problem as given on LeetCode.
+2. **SQL Solution**: Query-based solution.
+3. **Pandas Solution**: Python-based solution using Pandas for equivalent logic.
+4. **Explanation**: Detailed explanation of the logic and approach used.
+
+## Learning Goals
+
+This repository is a reflection of my learning path, where I aim to:
+
+- Improve SQL querying and optimization techniques.
+- Gain proficiency in **Pandas** for Python-based data manipulation.
+- Strengthen my understanding of **data analysis** and **problem-solving** approaches.
+- Build a comprehensive portfolio to demonstrate my analytical skills.
+
+## Problem Set
+
+Each problem solution can be found in the `problems` folder, where I document:
+
+- The problem statement
+- The SQL and Pandas solutions
+- Test cases and examples
+
+## Technologies Used
+
+- **SQL**: For querying and data manipulation.
+- **Python (Pandas)**: For solving problems in a Pythonic way using dataframes.
+- **LeetCode**: A platform for practicing coding problems.
+
+## How to Use
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/sql-pandas-problem-solving.git
