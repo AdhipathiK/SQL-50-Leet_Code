@@ -1,1 +1,13 @@
+Problem Statement:
+We have a table called Customer that contains information about customers, their names, and whether they were referred by another customer. Each customer may have a referee_id, which tells us who referred them.
+Our task is to find the names of customers who were not referred by the customer with id = 2.
 
+Approach:
+Identify Non-referred Customers:
+We look for customers where the referee_id is either not 2 or null (meaning they weren’t referred by anyone).
+
+Return the Names:
+Once we filter out the customers who were referred by id = 2, we return the names of the remaining customers.
+
+Why This Matters:
+This problem demonstrates how we can filter data based on specific conditions. By using this approach, we can quickly find the relevant information without manually checking each customer, making it a faster and more efficient process.
