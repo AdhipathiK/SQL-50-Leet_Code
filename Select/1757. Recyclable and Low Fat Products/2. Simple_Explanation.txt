@@ -1,18 +1,18 @@
 Problem Statement:
-We are given a table of products, where each product has two important properties: whether it is low fat and whether it is recyclable. 
-Our goal is to find the products that are both low fat and recyclable, and return only their IDs.
+  We are given a table of products, where each product has two important properties: whether it is low fat and whether it is recyclable. 
+  Our goal is to find the products that are both low fat and recyclable, and return only their IDs.
 
 Approach:
-Explore (Table):
-The product information in a Table, which is similar to a spreadsheet in how it stores data in rows and columns.
-
-Condition Checking:
-For each product, we need to check if both the "low fat" and "recyclable" properties are marked as 'Y' (Yes). If both conditions are true, we keep that product.
-
-Extracting the Product IDs:
-Once we identify the products that meet both conditions, we extract their "product_id" as our final result.
+  1. Explore (Table):
+  The product information in a Table, which is similar to a spreadsheet in how it stores data in rows and columns.
+  
+  2. Condition Checking:
+  For each product, we need to check if both the "low fat" and "recyclable" properties are marked as 'Y' (Yes). If both conditions are true, we keep that product.
+  
+  3. Extracting the Product IDs:
+  Once we identify the products that meet both conditions, we extract their "product_id" as our final result.
 
 Why This Matters:
-This approach is efficient because it allows us to automate the process of finding products with specific properties. Instead of manually going through the data, 
-we let the computer handle the search and filtering, which saves time and ensures accuracy.
+  This approach is efficient because it allows us to automate the process of finding products with specific properties. Instead of manually going through the data, 
+  we let the computer handle the search and filtering, which saves time and ensures accuracy.
 
