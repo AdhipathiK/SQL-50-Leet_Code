@@ -29,8 +29,8 @@ This repository is a reflection of my learning path, where I aim to:
 Each problem solution can be found in the `problems` folder, where I document:
 
 - The problem statement
+- Simple Explanation
 - The SQL and Pandas solutions
-- Test cases and examples
 
 ## Technologies Used
 
