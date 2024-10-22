@@ -9,7 +9,3 @@ def find_products(products: pd.DataFrame) -> pd.DataFrame:
   result = products[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')]
   result = result[['product_id']]
   return result
-
-
-  
-  
