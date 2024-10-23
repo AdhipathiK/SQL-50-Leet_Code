@@ -11,9 +11,9 @@ I am an experienced **Data Analyst** and a current **MSc Data Science** student 
 In this repository, I solve **50 SQL problems** from LeetCode using both **SQL** and **Pandas**. My approach includes:
 
 1. **Problem Statement**: Description of the problem as given on LeetCode.
-2. **SQL Solution**: Query-based solution.
+2. **Explanation**: Detailed explanation of the logic and approach used.
 3. **Pandas Solution**: Python-based solution using Pandas for equivalent logic.
-4. **Explanation**: Detailed explanation of the logic and approach used.
+4. **SQL Solution**: Query-based solution.
 
 ## Learning Goals
 
