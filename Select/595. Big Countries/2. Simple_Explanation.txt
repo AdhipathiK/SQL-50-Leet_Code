@@ -1,0 +1,15 @@
+Problem Statement:
+  We are given a World table containing information about various countries, including their names, continents, areas, populations, and GDPs. A country is classified as "big" if it either:
+  Has an area of at least 3 million km² (i.e., 3,000,000).
+  Has a population of at least 25 million (i.e., 25,000,000).
+  The goal is to write a SQL query that retrieves the names, populations, and areas of the big countries that meet at least one of the above conditions.
+
+Approach:
+  1. Filter the rows of the World table based on the given conditions for area and population:
+  The area should be at least 3 million (area >= 3000000).
+  The population should be at least 25 million (population >= 25000000).
+  2. Select the columns name, population, and area from the filtered rows.
+  The SQL query will use a WHERE clause to filter the rows based on either of the two conditions using the OR operator. Once filtered, we will return the required columns.
+
+Why This Matters:
+  This type of query is useful in data analysis when categorizing or identifying specific groups based on certain criteria, such as large countries by area or population. 
