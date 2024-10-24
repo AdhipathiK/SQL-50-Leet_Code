@@ -1,24 +1,19 @@
 --Schema
-Create table If Not Exists Customer (id int, name varchar(25), referee_id int)
-Truncate table Customer
-insert into Customer (id, name, referee_id) values ('1', 'Will', NULL)
-insert into Customer (id, name, referee_id) values ('2', 'Jane', NULL)
-insert into Customer (id, name, referee_id) values ('3', 'Alex', '2')
-insert into Customer (id, name, referee_id) values ('4', 'Bill', NULL)
-insert into Customer (id, name, referee_id) values ('5', 'Zack', '1')
-insert into Customer (id, name, referee_id) values ('6', 'Mark', '2')
+Create table If Not Exists Employees (id int, name varchar(20))
+Create table If Not Exists EmployeeUNI (id int, unique_id int)
+Truncate table Employees
+insert into Employees (id, name) values ('1', 'Alice')
+insert into Employees (id, name) values ('7', 'Bob')
+insert into Employees (id, name) values ('11', 'Meir')
+insert into Employees (id, name) values ('90', 'Winston')
+insert into Employees (id, name) values ('3', 'Jonathan')
+Truncate table EmployeeUNI
+insert into EmployeeUNI (id, unique_id) values ('3', '1')
+insert into EmployeeUNI (id, unique_id) values ('11', '2')
+insert into EmployeeUNI (id, unique_id) values ('90', '3')
 
 --Solution 1
-SELECT name
-FROM Customer
-WHERE referee_id <> 2 OR referee_id IS NULL
-
---Solution 2
-SELECT name
-FROM Customer
-WHERE IFNULL(referee_id,-1) <>2
-
---Solution 3
-SELECT name
-FROM Customer
-WHERE COALESCE(referee_id,-1) <>2
+SELECT euni.unique_id, e.name
+FROM Employees e
+LEFT JOIN EmployeeUNI euni
+ON e.id = euni.id
