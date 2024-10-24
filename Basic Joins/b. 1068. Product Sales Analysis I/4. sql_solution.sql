@@ -1,24 +1,17 @@
 --Schema
-Create table If Not Exists World (name varchar(255), continent varchar(255), area int, population int, gdp bigint)
-Truncate table World
-insert into World (name, continent, area, population, gdp) values ('Afghanistan', 'Asia', '652230', '25500100', '20343000000')
-insert into World (name, continent, area, population, gdp) values ('Albania', 'Europe', '28748', '2831741', '12960000000')
-insert into World (name, continent, area, population, gdp) values ('Algeria', 'Africa', '2381741', '37100000', '188681000000')
-insert into World (name, continent, area, population, gdp) values ('Andorra', 'Europe', '468', '78115', '3712000000')
-insert into World (name, continent, area, population, gdp) values ('Angola', 'Africa', '1246700', '20609294', '100990000000')
+Create table If Not Exists Sales (sale_id int, product_id int, year int, quantity int, price int)
+Create table If Not Exists Product (product_id int, product_name varchar(10))
+Truncate table Sales
+insert into Sales (sale_id, product_id, year, quantity, price) values ('1', '100', '2008', '10', '5000')
+insert into Sales (sale_id, product_id, year, quantity, price) values ('2', '100', '2009', '12', '5000')
+insert into Sales (sale_id, product_id, year, quantity, price) values ('7', '200', '2011', '15', '9000')
+Truncate table Product
+insert into Product (product_id, product_name) values ('100', 'Nokia')
+insert into Product (product_id, product_name) values ('200', 'Apple')
+insert into Product (product_id, product_name) values ('300', 'Samsung')
 
 --Solution 1
-SELECT name, population, area
-FROM World
-WHERE area >= 3000000 OR population >= 25000000
-
---Solution 2
-SELECT name, population, area
-FROM World
-WHERE area >= 3000000
-
-UNION
-
-SELECT name, population, area
-FROM World
-WHERE population >= 25000000;
+SELECT p.product_name, s.year, s.price
+FROM Sales s
+LEFT JOIN Product p
+ON s.product_id = p.product_id
