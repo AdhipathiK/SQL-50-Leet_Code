@@ -1,15 +1,15 @@
 Problem Statement:
-  We are given a World table containing information about various countries, including their names, continents, areas, populations, and GDPs. A country is classified as "big" if it either:
-  Has an area of at least 3 million km² (i.e., 3,000,000).
-  Has a population of at least 25 million (i.e., 25,000,000).
-  The goal is to write a SQL query that retrieves the names, populations, and areas of the big countries that meet at least one of the above conditions.
+  We are given two tables: Sales and Product. The Sales table contains records of product sales, including the product ID, year of sale, quantity, and price per unit. The Product table holds product information, 
+  including the product ID and the corresponding product name.
+  The task is to write a query that outputs the product_name, year, and price for each sale from the Sales table, by joining it with the Product table based on product_id.
 
 Approach:
-  1. Filter the rows of the World table based on the given conditions for area and population:
-  The area should be at least 3 million (area >= 3000000).
-  The population should be at least 25 million (population >= 25000000).
-  2. Select the columns name, population, and area from the filtered rows.
-  The SQL query will use a WHERE clause to filter the rows based on either of the two conditions using the OR operator. Once filtered, we will return the required columns.
+  1. Join the Tables: The Sales table contains product_id, which is the foreign key that references the Product table. We will perform an left join between the Sales and Product tables using this product_id to 
+  fetch the product name for each sale.
+  2. Select Relevant Columns: From the joined tables, select the product_name from the Product table, and year and price from the Sales table.
+  3. Return the Result: We will return the results in any order as per the problem requirements.
 
 Why This Matters:
-  This type of query is useful in data analysis when categorizing or identifying specific groups based on certain criteria, such as large countries by area or population. 
+  This query is important because it demonstrates how to efficiently combine data from multiple related tables to get more meaningful insights. Joining tables based on foreign key relationships is a common operation 
+  in databases and is essential for generating reports or analyzing data across different entities.
+  
