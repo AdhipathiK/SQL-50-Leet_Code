@@ -1,0 +1,17 @@
+Problem Statement:
+  We have a table called Tweets with two columns: tweet_id and content. The task is to find the IDs of the tweets that are considered invalid. A tweet is invalid if the number of characters in the content exceeds 15.
+
+Approach:
+  1. We need to identify the rows where the length of the content column is greater than 15.
+  2. Using the SQL LENGTH() function (or LEN() depending on the SQL variant), we can calculate the length of the content for each tweet.
+  3. We will select the tweet_id for rows where the length of the content is greater than 15.
+
+Why This Matters:
+  Ensuring that tweets meet character limits is critical for maintaining consistent user experiences, database optimization, and respecting the platform's constraints.
+  Identifying invalid tweets helps in validating data and preventing issues in social media apps where character limits are enforced.
+
+
+
+
+
+
