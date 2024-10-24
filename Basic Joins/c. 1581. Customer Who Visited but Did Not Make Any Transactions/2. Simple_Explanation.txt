@@ -1,0 +1,12 @@
+Problem Statement
+  The problem is asking to find all the authors who have viewed at least one of their own articles. In the given table Views, there are several records showing different authors and viewers for specific articles. 
+  The critical point here is that if the author_id and viewer_id are the same for any record, it indicates that the author viewed their own article.
+
+Approach:
+  1. Identify Self-Views: We need to check the rows where the author_id matches the viewer_id, as this indicates that the author viewed their own article.
+  2. Select Distinct Authors: Since there can be multiple entries for the same author viewing their own articles, we should select distinct author IDs to avoid duplication in the result.
+  3. Sort the Result: Finally, we return the distinct author_id (renamed to id in the output) and sort them in ascending order.
+
+Why It Matters:
+  This query is useful in analyzing user behavior, especially when it comes to understanding how authors engage with their own content. Authors viewing their own articles might indicate review activity, 
+  quality checking, or engagement tracking from their perspective, which could be insightful in content-based platforms.
