@@ -1,10 +1,5 @@
 --Schema
-data = [[1, 'Let us Code'], [2, 'More than fifteen chars are here!']]
-tweets = pd.DataFrame(data, columns=['tweet_id', 'content']).astype({'tweet_id':'Int64', 'content':'object'})
+data = [[1, '2015-01-01', 10], [2, '2015-01-02', 25], [3, '2015-01-03', 20], [4, '2015-01-04', 30]]
+weather = pd.DataFrame(data, columns=['id', 'recordDate', 'temperature']).astype({'id':'Int64', 'recordDate':'datetime64[ns]', 'temperature':'Int64'})
 
 --Solution
-import pandas as pd
-
-def invalid_tweets(tweets: pd.DataFrame) -> pd.DataFrame:
-    result = tweets[tweets['content'].str.len() > 15]
-    return result[['tweet_id']]
