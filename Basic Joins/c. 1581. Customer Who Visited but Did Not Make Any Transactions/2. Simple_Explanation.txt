@@ -1,12 +1,13 @@
 Problem Statement
-  The problem is asking to find all the authors who have viewed at least one of their own articles. In the given table Views, there are several records showing different authors and viewers for specific articles. 
-  The critical point here is that if the author_id and viewer_id are the same for any record, it indicates that the author viewed their own article.
+  We are given two tables, Visits and Transactions. The Visits table contains information about customer visits to a mall, and the Transactions table contains data about transactions made during those visits. 
+  We need to find the IDs of the customers who visited the mall without making any transactions and count how many times they had such visits.
 
 Approach:
-  1. Identify Self-Views: We need to check the rows where the author_id matches the viewer_id, as this indicates that the author viewed their own article.
-  2. Select Distinct Authors: Since there can be multiple entries for the same author viewing their own articles, we should select distinct author IDs to avoid duplication in the result.
-  3. Sort the Result: Finally, we return the distinct author_id (renamed to id in the output) and sort them in ascending order.
+  1. Identify Visits Without Transactions: We start by identifying visits where no transactions were made. This can be done by checking which visit_id in the Visits table does not appear in the Transactions table.
+  2. Join the Tables: Perform a left join between Visits and Transactions using visit_id to find out which visit_id from the Visits table is not present in the Transactions table.
+  3. Count No-Transaction Visits: Once we have identified the visit_id without transactions, group the result by customer_id and count the number of such no-transaction visits.
+  4. Return the Result: The result will contain customer_id and the count of no-transaction visits (count_no_trans).
 
 Why It Matters:
-  This query is useful in analyzing user behavior, especially when it comes to understanding how authors engage with their own content. Authors viewing their own articles might indicate review activity, 
-  quality checking, or engagement tracking from their perspective, which could be insightful in content-based platforms.
+  This query is useful for analyzing customer behavior in malls. Identifying customers who frequently visit without making transactions can help in understanding customer engagement and targeting specific 
+  marketing strategies to convert visits into sales.
