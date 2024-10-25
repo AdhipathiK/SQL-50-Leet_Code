@@ -1,12 +1,14 @@
 --Schema
-data = [[1, 3, 5, '2019-08-01'], [1, 3, 6, '2019-08-02'], [2, 7, 7, '2019-08-01'], [2, 7, 6, '2019-08-02'], [4, 7, 1, '2019-07-22'], [3, 4, 4, '2019-07-21'], [3, 4, 4, '2019-07-21']]
-views = pd.DataFrame(data, columns=['article_id', 'author_id', 'viewer_id', 'view_date']).astype({'article_id':'Int64', 'author_id':'Int64', 'viewer_id':'Int64', 'view_date':'datetime64[ns]'})
+data = [[1, 23], [2, 9], [4, 30], [5, 54], [6, 96], [7, 54], [8, 54]]
+visits = pd.DataFrame(data, columns=['visit_id', 'customer_id']).astype({'visit_id':'Int64', 'customer_id':'Int64'})
+data = [[2, 5, 310], [3, 5, 300], [9, 5, 200], [12, 1, 910], [13, 2, 970]]
+transactions = pd.DataFrame(data, columns=['transaction_id', 'visit_id', 'amount']).astype({'transaction_id':'Int64', 'visit_id':'Int64', 'amount':'Int64'})
 
 --Solution
 import pandas as pd
 
-def article_views(views: pd.DataFrame) -> pd.DataFrame:
-    result = views[views['author_id'] == views['viewer_id']]
-    result = result[['author_id']].drop_duplicates().sort_values(by='author_id')
-    result.rename(columns={'author_id':'id'}, inplace=True)
-    return result
+def find_customers(visits: pd.DataFrame, transactions: pd.DataFrame) -> pd.DataFrame:
+    result = pd.merge(visits, transactions, how='left', on='visit_id')
+    no_trans_visits = result[result['transaction_id'].isnull()]
+    no_trans_count = no_trans_visits.groupby('customer_id').size().reset_index(name='count_no_trans')
+    return no_trans_count
