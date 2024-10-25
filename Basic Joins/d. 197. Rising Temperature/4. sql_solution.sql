@@ -1,10 +1,14 @@
 --Schema
-Create table If Not Exists Tweets(tweet_id int, content varchar(50))
-Truncate table Tweets
-insert into Tweets (tweet_id, content) values ('1', 'Let us Code')
-insert into Tweets (tweet_id, content) values ('2', 'More than fifteen chars are here!')
+Create table If Not Exists Weather (id int, recordDate date, temperature int)
+Truncate table Weather
+insert into Weather (id, recordDate, temperature) values ('1', '2015-01-01', '10')
+insert into Weather (id, recordDate, temperature) values ('2', '2015-01-02', '25')
+insert into Weather (id, recordDate, temperature) values ('3', '2015-01-03', '20')
+insert into Weather (id, recordDate, temperature) values ('4', '2015-01-04', '30')
 
 --Solution
-SELECT tweet_id
-FROM Tweets
-WHERE CHAR_LENGTH(content) >15
+SELECT w1.id AS Id
+FROM Weather w1
+LEFT JOIN Weather w2
+ON w1.recordDate - INTERVAL 1 DAY = w2.recordDate
+WHERE w1.temperature > w2.temperature
