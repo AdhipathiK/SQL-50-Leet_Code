@@ -1,13 +1,22 @@
 -- Schema
-Create table If Not Exists Products (product_id int, low_fats ENUM('Y', 'N'), recyclable ENUM('Y','N'))
-Truncate table Products
-insert into Products (product_id, low_fats, recyclable) values ('0', 'Y', 'N')
-insert into Products (product_id, low_fats, recyclable) values ('1', 'Y', 'Y')
-insert into Products (product_id, low_fats, recyclable) values ('2', 'N', 'Y')
-insert into Products (product_id, low_fats, recyclable) values ('3', 'Y', 'Y')
-insert into Products (product_id, low_fats, recyclable) values ('4', 'N', 'N')
+Create table If Not Exists Activity (machine_id int, process_id int, activity_type ENUM('start', 'end'), timestamp float)
+Truncate table Activity
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '0', 'start', '0.712')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '0', 'end', '1.52')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '1', 'start', '3.14')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '1', 'end', '4.12')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '0', 'start', '0.55')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '0', 'end', '1.55')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '1', 'start', '0.43')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '1', 'end', '1.42')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('2', '0', 'start', '4.1')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('2', '0', 'end', '4.512')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('2', '1', 'start', '2.5')
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('2', '1', 'end', '5')
   
 --Solution
-SELECT product_id
-FROM Products
-WHERE low_fats = 'Y' AND recyclable = 'Y'
+SELECT a1.machine_id, ROUND(AVG(a2.timestamp - a1.timestamp),3) AS processing_time
+FROM Activity a1
+INNER JOIN Activity a2
+ON  a1.machine_id = a2.machine_id AND a1.process_id = a2.process_id AND a1.timestamp < a2.timestamp
+GROUP BY machine_id 
