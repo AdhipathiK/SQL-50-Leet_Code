@@ -1,0 +1,19 @@
+Problem Statement:
+We have two tables: Employee and Bonus. The Employee table contains information about employees, including their empId, name, supervisor, and salary. The Bonus table contains information about employee bonuses, linked by the empId.
+
+We aim to find the name and bonus of employees who have a bonus less than 1000. If an employee does not have an entry in the Bonus table, they are treated as having no bonus (null). The result should include these employees with a null value for their bonus.
+
+Approach:
+1. Join the Tables: Use a LEFT JOIN to combine the Employee table with the Bonus table. A left join ensures all employees are included, even if they do not have a bonus recorded (resulting in a null).
+
+2. Filter for Bonuses < 1000: Include a condition to filter bonuses that are less than 1000 or are null. This ensures we only retrieve employees who meet the criteria.
+
+3. Select Relevant Columns: Retrieve only the name and bonus columns as specified in the requirements.
+
+Why This Matters:
+Identify under-compensated employees: Helps highlight employees receiving less bonus, which might indicate performance issues, dissatisfaction, or a need for evaluation.
+
+Resource Allocation: Allows organizations to review compensation policies and ensure fairness or competitiveness in bonuses.
+
+Data Reporting: Enables comprehensive insights into both existing and missing bonus records.
+

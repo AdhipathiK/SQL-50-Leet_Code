@@ -1,0 +1,23 @@
+Problem Statement:
+  In a factory setting, each machine has multiple processes, each with two recorded activities: start and end. Our goal is to calculate the average time each machine takes to complete a process. For each machine, we need to 
+  determine the difference between the end and start timestamps for each process and then compute the average of these differences. The result should include each machine_id and the processing_time (average time per process), 
+  rounded to three decimal places.
+
+Approach:
+  1. Self-Join the Table:
+  The Activity table is joined with itself, treating one instance as a1 and the other as a2.
+  We use the INNER JOIN to find matching records within Activity for each machine_id and process_id.
+  2. Matching Criteria (ON clause):
+  We join on a1.machine_id = a2.machine_id and a1.process_id = a2.process_id to ensure we're comparing timestamps from the same machine and process.
+  The condition a1.timestamp < a2.timestamp assumes that for each start timestamp, there is a corresponding end timestamp that is always later (greater). This ensures that we match each start activity with the correct end 
+  activity within the same process.
+  3. Calculate Processing Time:
+  For each matched pair of records (a1, a2), we calculate the time difference a2.timestamp - a1.timestamp. This gives the duration of each process.
+  4. Average Processing Time by Machine:
+  ROUND(AVG(a2.timestamp - a1.timestamp), 3) calculates the average time each machine takes to complete a process. We then round this average to three decimal places for clarity.
+  GROUP BY a1.machine_id groups the results by each machine_id, so we get the average processing time for each individual machine.
+
+Why This Matters:
+  Understanding the average time each machine takes to complete processes is crucial for factory efficiency analysis. By identifying which machines have longer or shorter processing times, the factory can investigate 
+  bottlenecks, optimize workflows, and improve overall productivity. This analysis supports data-driven decisions to maximize resource utilization and maintain consistent production rates.
+

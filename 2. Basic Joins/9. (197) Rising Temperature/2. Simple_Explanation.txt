@@ -1,0 +1,17 @@
+Problem Statement
+  We have a Weather table containing information about daily temperatures, with each record including a unique id, a recordDate, and a temperature. Our goal is to find the id of dates where the temperature 
+  was higher compared to the previous day.
+
+Approach
+  1. Left Join on Previous Date:
+  The LEFT JOIN operation on Weather w1 with Weather w2 checks if each recordDate in w1 has a matching previous day (recordDate - INTERVAL 1 DAY = w2.recordDate). This means that each row in w1 will look 
+  for a match in w2 that is exactly one day before.
+  2. Filtering on Higher Temperatures:
+  After finding rows where w1.recordDate is one day after w2.recordDate, the WHERE clause filters to only those records where the w1.temperature is greater than w2.temperature.
+  3. Selecting the IDs:
+  Finally, only the id of the dates in w1 where the temperature is higher than the previous day is selected, and it is labeled as Id.
+
+Why This Matters
+  This type of query is useful in various scenarios involving sequential or temporal data analysis:
+  Weather Analysis: Identifying temperature trends and anomalies can help with weather forecasting and climate research.
+  Time Series Analysis: This pattern can extend to other fields where analyzing values relative to their previous occurrences, like stock prices or sales data, provides insights into trends and fluctuations.

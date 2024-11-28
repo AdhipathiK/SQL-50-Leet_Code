@@ -1,0 +1,15 @@
+Problem Statement:
+  You are given two tables, Employees and EmployeeUNI. The Employees table contains the id and name of each employee, and the EmployeeUNI table contains the id and the corresponding unique_id of the employee.
+  You are asked to return the unique_id for each employee. If an employee does not have a unique_id, you should return null for that employee.
+
+Approach:
+  1. Join the tables: The goal is to retrieve each employee’s unique_id along with their name. To achieve this, a LEFT JOIN can be performed between the Employees and EmployeeUNI tables on the id column.
+  A LEFT JOIN ensures that we get all the records from the Employees table, even if there is no matching unique_id in the EmployeeUNI table.
+  
+  2. Handle null values: In cases where an employee does not have a corresponding unique_id in the EmployeeUNI table, the result should show null for that employee.
+  
+  3. Select required columns: Finally, select the unique_id from EmployeeUNI (or null if not present) and the name from Employees.
+
+Why This Matters:
+  In many real-world scenarios, datasets may be incomplete or only partially linked across multiple tables. This query demonstrates how to handle such cases by ensuring that all employees are included in the result, 
+  even if they are missing some information (like a unique_id). Handling such cases gracefully ensures comprehensive and accurate data analysis, which is essential for tasks like reporting, audits, and decision-making.
