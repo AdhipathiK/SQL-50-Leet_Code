@@ -1,0 +1,21 @@
+Approach:
+1. Cross Join
+The CROSS JOIN creates a Cartesian product of the Students and Subjects tables.
+This ensures that every student is paired with every subject, resulting in all possible combinations of students and subjects.
+
+2. Left Join
+The LEFT JOIN matches the combinations from the CROSS JOIN with the Examinations table.
+The condition s.student_id = e.student_id AND su.subject_name = e.subject_name ensures that we only join rows where a student attended the specific subject exam.
+If no match is found in the Examinations table (i.e., the student didn’t attend the exam for that subject), the result will still include the combination with NULL values for columns from the Examinations table.
+
+3. Count
+The COUNT(e.student_id) counts how many times the student attended the exam for the given subject.
+Since NULL values from the LEFT JOIN are ignored by COUNT, this correctly returns 0 for subjects where the student didn't attend any exams.
+
+4. Group By
+The GROUP BY clause groups the data by each unique combination of student_id, student_name, and subject_name.
+This ensures that the COUNT() function calculates the total attendance for each student-subject pair.
+
+5. Order By
+The ORDER BY clause sorts the final result by student_id and student_name, ensuring the result is organized as per the requirements.
+
