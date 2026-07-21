@@ -4,7 +4,7 @@ Welcome to my GitHub repository! This repository showcases my solutions to **Lee
 
 ## About Me
 
-I am an experienced **Data Analyst** and a current **MSc Data Science** student at **Manchester Metropolitan University**. I have a proven track record of analyzing and visualizing complex datasets, creating dashboards to drive data-driven decisions. I am certified in **Azure Data Fundamentals (DP-900)** and proficient in a wide range of data engineering and analytical tools. You can find more about my professional background on my [LinkedIn](https://www.linkedin.com/in/adhipathi-kannan).
+I am an experienced **Data Analyst** and a current **MSc Data Science** student at **Manchester Metropolitan University**. I have a proven track record of analyzing and visualizing complex datasets, creating dashboards to drive data-driven decisions. You can find more about my professional background on my [LinkedIn](https://www.linkedin.com/in/adhipathi-kannan).
 
 ## Problem Solving Approach
 
