@@ -11,8 +11,3 @@ Approach:
   
   3. Extracting the Product IDs:
   Once we identify the products that meet both conditions, we extract their "product_id" as our final result.
-
-Why This Matters:
-  This approach is efficient because it allows us to automate the process of finding products with specific properties. Instead of manually going through the data, 
-  we let the computer handle the search and filtering, which saves time and ensures accuracy.
-
