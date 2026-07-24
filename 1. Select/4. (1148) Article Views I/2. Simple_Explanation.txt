@@ -7,6 +7,3 @@ Approach:
   2. Select Distinct Authors: Since there can be multiple entries for the same author viewing their own articles, we should select distinct author IDs to avoid duplication in the result.
   3. Sort the Result: Finally, we return the distinct author_id (renamed to id in the output) and sort them in ascending order.
 
-Why It Matters:
-  This query is useful in analyzing user behavior, especially when it comes to understanding how authors engage with their own content. Authors viewing their own articles might indicate review activity, 
-  quality checking, or engagement tracking from their perspective, which could be insightful in content-based platforms.
