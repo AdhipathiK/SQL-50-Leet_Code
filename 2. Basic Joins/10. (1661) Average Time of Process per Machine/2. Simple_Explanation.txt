@@ -17,7 +17,3 @@ Approach:
   ROUND(AVG(a2.timestamp - a1.timestamp), 3) calculates the average time each machine takes to complete a process. We then round this average to three decimal places for clarity.
   GROUP BY a1.machine_id groups the results by each machine_id, so we get the average processing time for each individual machine.
 
-Why This Matters:
-  Understanding the average time each machine takes to complete processes is crucial for factory efficiency analysis. By identifying which machines have longer or shorter processing times, the factory can investigate 
-  bottlenecks, optimize workflows, and improve overall productivity. This analysis supports data-driven decisions to maximize resource utilization and maintain consistent production rates.
-
