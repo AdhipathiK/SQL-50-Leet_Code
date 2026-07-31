@@ -10,10 +10,3 @@ Approach:
 
 3. Select Relevant Columns: Retrieve only the name and bonus columns as specified in the requirements.
 
-Why This Matters:
-Identify under-compensated employees: Helps highlight employees receiving less bonus, which might indicate performance issues, dissatisfaction, or a need for evaluation.
-
-Resource Allocation: Allows organizations to review compensation policies and ensure fairness or competitiveness in bonuses.
-
-Data Reporting: Enables comprehensive insights into both existing and missing bonus records.
-
