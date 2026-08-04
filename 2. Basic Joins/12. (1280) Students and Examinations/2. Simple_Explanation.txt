@@ -1,3 +1,8 @@
+Problem Statement:
+We have three tables: Students, Subjects, and Examinations. The Students table contains information about each student, while the Subjects table lists all available subjects. The Examinations table records each time a student attends an exam for a particular subject and may contain multiple entries for the same student and subject.
+
+We aim to find the number of times each student attended each subject's exam. The result should include every possible student-subject combination, even if the student never attended that exam. In such cases, the attendance count should be 0. The final result should be ordered by student_id and subject_name.
+
 Approach:
 1. Cross Join
 The CROSS JOIN creates a Cartesian product of the Students and Subjects tables.
