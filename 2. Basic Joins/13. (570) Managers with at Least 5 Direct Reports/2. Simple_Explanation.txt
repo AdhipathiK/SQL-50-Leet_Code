@@ -1,26 +1,62 @@
-Problem Statement:
-We have three tables: Students, Subjects, and Examinations. The Students table contains information about each student, while the Subjects table lists all available subjects. The Examinations table records each time a student attends an exam for a particular subject and may contain multiple entries for the same student and subject.
+# Managers with at Least Five Direct Reports
 
-We aim to find the number of times each student attended each subject's exam. The result should include every possible student-subject combination, even if the student never attended that exam. In such cases, the attendance count should be 0. The final result should be ordered by student_id and subject_name.
+## Problem Statement
 
-Approach:
-1. Cross Join
-The CROSS JOIN creates a Cartesian product of the Students and Subjects tables.
-This ensures that every student is paired with every subject, resulting in all possible combinations of students and subjects.
+We have an **Employee** table that contains employee information, including their `id`, `name`, `department`, and `managerId`.
 
-2. Left Join
-The LEFT JOIN matches the combinations from the CROSS JOIN with the Examinations table.
-The condition s.student_id = e.student_id AND su.subject_name = e.subject_name ensures that we only join rows where a student attended the specific subject exam.
-If no match is found in the Examinations table (i.e., the student didn’t attend the exam for that subject), the result will still include the combination with NULL values for columns from the Examinations table.
+The `managerId` column stores the ID of the employee's manager. If it is `NULL`, the employee does not have a manager.
 
-3. Count
-The COUNT(e.student_id) counts how many times the student attended the exam for the given subject.
-Since NULL values from the LEFT JOIN are ignored by COUNT, this correctly returns 0 for subjects where the student didn't attend any exams.
+Our goal is to find the names of managers who have **at least five direct reports**.
 
-4. Group By
-The GROUP BY clause groups the data by each unique combination of student_id, student_name, and subject_name.
-This ensures that the COUNT() function calculates the total attendance for each student-subject pair.
+---
 
-5. Order By
-The ORDER BY clause sorts the final result by student_id and student_name, ensuring the result is organized as per the requirements.
+## Approach
 
+### 1. Self Join
+
+We perform a **self join** on the `Employee` table.
+
+- `e1` represents the **manager**.
+- `e2` represents the **employee**.
+
+The join condition:
+
+```sql
+e1.id = e2.managerId
+```
+
+matches each manager with their direct reports.
+
+---
+
+### 2. Group By
+
+We group the results by the manager's ID.
+
+This groups all employees who report to the same manager into a single group.
+
+```sql
+GROUP BY e2.managerId
+```
+
+---
+
+### 3. Count
+
+We use the `COUNT()` function to count the number of employees reporting to each manager.
+
+```sql
+COUNT(e1.id)
+```
+
+Since each joined row represents one direct report, the count gives the total number of direct reports for each manager.
+
+---
+
+### 4. Having
+
+We use the `HAVING` clause to filter managers who have at least five direct reports.
+
+```sql
+HAVING COUNT(e1.id) >= 5
+```
